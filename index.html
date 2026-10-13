@@ -105,14 +105,9 @@
     padding:96px 0 64px;
     overflow:hidden;
   }
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:48px;
-    align-items:center;
-  }
   .hero h1{
-    font-size:clamp(34px, 4.4vw, 54px);
+    max-width:24ch;
+    font-size:clamp(34px, 5vw, 60px);
     line-height:1.08;
     margin:18px 0 22px;
     color:var(--navy);
@@ -121,7 +116,7 @@
     font-style:italic; color:var(--brass);
   }
   .hero p.lede{
-    font-size:17px; color:var(--slate); max-width:46ch; margin-bottom:32px;
+    font-size:18px; color:var(--slate); max-width:56ch; margin-bottom:32px;
   }
   .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; }
   .btn-primary{
@@ -138,23 +133,6 @@
     transition:border-color 0.2s ease;
   }
   .btn-ghost:hover{ border-color:var(--navy); }
-
-  .bridge-wrap{
-    position:relative;
-    width:100%; aspect-ratio: 5 / 4;
-  }
-  .bridge-wrap svg{ width:100%; height:100%; }
-  .bridge-draw{
-    stroke-dasharray:1400;
-    stroke-dashoffset:1400;
-    animation:draw 2.4s ease forwards 0.3s;
-  }
-  @keyframes draw{ to{ stroke-dashoffset:0; } }
-  .pin-label{
-    font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.06em;
-    fill:var(--slate); text-transform:uppercase;
-  }
-  .pin-dot{ fill:var(--brass); }
 
   /* ---------- APPROACH STRIP ---------- */
   .approach{
@@ -205,19 +183,6 @@
   }
   .conv-card p{
     color:var(--slate); font-size:15px; margin:0;
-  }
-  .conv-list{
-    list-style:none; margin:18px 0 0; padding:0;
-    border-top:1px dashed var(--line);
-  }
-  .conv-list li{
-    font-size:14px; color:var(--navy);
-    padding:10px 0 10px 16px;
-    position:relative;
-    border-bottom:1px dashed var(--line);
-  }
-  .conv-list li::before{
-    content:"—"; position:absolute; left:0; color:var(--brass);
   }
   .conv-timeline{
     display:block;
@@ -398,8 +363,6 @@
     .nav-cta{ padding:8px 12px; font-size:11px; white-space:nowrap; flex:none; }
     nav.links{ display:none; }
     .wrap{ padding:0 20px; }
-    .hero-grid{ grid-template-columns:1fr; }
-    .bridge-wrap{ order:-1; max-width:340px; margin:0 auto; }
     .approach .wrap{ grid-template-columns:1fr; }
     .conv-grid{ grid-template-columns:1fr; }
     .conv-related{ margin-top:56px; }
@@ -432,34 +395,15 @@
 </header>
 
 <section class="hero">
-  <div class="wrap hero-grid">
+  <div class="wrap">
     <div>
       <span class="eyebrow">Conveyancing Lawyers · Singapore</span>
       <h1>Every property changes hands <em>somewhere in the middle.</em></h1>
-      <p class="lede">CrossBorders LLC is a Singapore conveyancing practice — acting on HDB, private, and commercial property transactions from option to completion. We also advise on family law, probate and estate matters, and personal injury claims.</p>
+      <p class="lede">CrossBorders LLC is a Singapore Law Practice — acting on HDB, private, and commercial property transactions from option to completion. We also advise on family law, probate and estate matters, and personal injury claims.</p>
       <div class="hero-ctas">
         <a class="btn-primary" href="#contact">Make an enquiry</a>
         <a class="btn-ghost" href="#conveyancing">View conveyancing services</a>
       </div>
-    </div>
-    <div class="bridge-wrap" aria-hidden="true">
-      <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
-        <path class="bridge-draw" d="M30 220 C 100 90, 300 90, 370 220" fill="none" stroke="#A9803D" stroke-width="1.4"/>
-        <g stroke="#14213D" stroke-width="1" opacity="0.55">
-          <line x1="70" y1="196" x2="76" y2="145"/>
-          <line x1="110" y1="163" x2="122" y2="120"/>
-          <line x1="150" y1="140" x2="167" y2="105"/>
-          <line x1="200" y1="130" x2="200" y2="98"/>
-          <line x1="250" y1="140" x2="233" y2="105"/>
-          <line x1="290" y1="163" x2="278" y2="120"/>
-          <line x1="330" y1="196" x2="324" y2="145"/>
-        </g>
-        <line x1="10" y1="222" x2="390" y2="222" stroke="#14213D" stroke-width="1.2"/>
-        <circle class="pin-dot" cx="30" cy="222" r="4"/>
-        <circle class="pin-dot" cx="370" cy="222" r="4"/>
-        <text class="pin-label" x="30" y="248" text-anchor="middle">Singapore</text>
-        <text class="pin-label" x="370" y="248" text-anchor="middle">Elsewhere</text>
-      </svg>
     </div>
   </div>
 </section>
@@ -503,12 +447,6 @@
         </svg>
         <h3>HDB Properties</h3>
         <p>Acting for buyers and sellers through HDB's resale process, from the Option to Purchase to key collection.</p>
-        <ul class="conv-list">
-          <li>Resale application and HDB approval</li>
-          <li>First and second appointment representation</li>
-          <li>CPF and housing grant utilisation</li>
-          <li>Eligibility and Ethnic Integration Policy checks</li>
-        </ul>
         <span class="conv-timeline">Typical timeline: 8–10 weeks from OTP to completion</span>
       </div>
       <div class="conv-card">
@@ -521,13 +459,7 @@
           <line x1="28" y1="24" x2="32" y2="24" stroke="#A9803D" stroke-width="1.1"/>
         </svg>
         <h3>Private Properties</h3>
-        <p>Advising on condominium and landed home transactions, including more complex or collective sales.</p>
-        <ul class="conv-list">
-          <li>Options to Purchase and sale &amp; purchase agreements</li>
-          <li>Mortgage, refinancing, and discharge of charge</li>
-          <li>En bloc sale representation</li>
-          <li>Sub-sale and assignment transactions</li>
-        </ul>
+        <p>Advising on condominium and landed home transactions, including more complex matters.</p>
         <span class="conv-timeline">Typical timeline: 10–12 weeks from OTP to completion</span>
       </div>
       <div class="conv-card">
@@ -544,12 +476,6 @@
         </svg>
         <h3>Commercial Properties</h3>
         <p>Handling shop, office, and industrial premises for owners, tenants, and investors.</p>
-        <ul class="conv-list">
-          <li>Sale and purchase of strata and leasehold units</li>
-          <li>Tenancy agreements and lease renewals</li>
-          <li>Title and due diligence review</li>
-          <li>Stamp duty and GST advisory</li>
-        </ul>
         <span class="conv-timeline">Typical timeline: varies with transaction complexity</span>
       </div>
     </div>
@@ -568,32 +494,27 @@
       <div class="conv-service">
         <span class="conv-service-num">05</span>
         <h4>Ownership Restructuring</h4>
-        <p>Decoupling and related restructuring of jointly held property for tax planning, financing headroom, and estate purposes.</p>
+        <p>Decoupling and related restructuring of jointly held property.</p>
       </div>
       <div class="conv-service">
         <span class="conv-service-num">06</span>
         <h4>Trust &amp; Nominee Purchases</h4>
-        <p>Structuring acquisitions held on trust, including for beneficiaries and family members based outside Singapore.</p>
+        <p>Structuring acquisitions held on trust.</p>
       </div>
       <div class="conv-service">
         <span class="conv-service-num">07</span>
-        <h4>En-Bloc Transactions</h4>
-        <p>Representing individual owners and developers through collective sale proceedings, from committee formation to completion.</p>
+        <h4>Wills &amp; Probate</h4>
+        <p>Estate planning and administration for families/individuals.</p>
       </div>
       <div class="conv-service">
         <span class="conv-service-num">08</span>
-        <h4>Wills &amp; Probate</h4>
-        <p>Estate planning and administration for families holding assets in more than one country, including recognition of foreign grants.</p>
-      </div>
-      <div class="conv-service">
-        <span class="conv-service-num">09</span>
         <h4>Power of Attorney</h4>
         <p>Preparing and registering Lasting Powers of Attorney and general POAs, including arrangements for clients residing abroad.</p>
       </div>
       <div class="conv-service">
-        <span class="conv-service-num">10</span>
+        <span class="conv-service-num">09</span>
         <h4>Matrimonial &amp; Family</h4>
-        <p>Advising on divorce and ancillary matters, with particular experience where spouses, assets, or children are located overseas.</p>
+        <p>Advising on divorce and ancillary matters.</p>
       </div>
     </div>
   </div>
@@ -710,7 +631,6 @@
             <option>Conveyancing – Loan Redemption &amp; Refinancing</option>
             <option>Conveyancing – Ownership Restructuring</option>
             <option>Conveyancing – Trust &amp; Nominee Purchases</option>
-            <option>Conveyancing – En-Bloc Transactions</option>
           </optgroup>
           <optgroup label="Other practice areas">
             <option>Family Law</option>
